@@ -45,6 +45,10 @@ void LogCheck::checkConditionsForLog(Site &ion, Lattice *lattice,
             if(lattice != NULL) lattice->stuck_num++;
         }
     }
+    // Disabled the buried-ion rejection condition to allow
+    // trajectories flagged as buried to be evaluated for
+    // transmission through the target.
+    // Intended for 2D material transmission simulations.
     // else if (buried)
     // {
     //     theta = 0;
@@ -103,6 +107,9 @@ void LogCheck::checkConditionsForLog(Site &ion, Lattice *lattice,
             pzz = pz;
         }
         double p = sqrt(psq);
+        // Disabled the non-escaping-ion rejection condition
+        // to retain trajectories for angular analysis in
+        // transmission simulations using 2D materials.
         // Ion is not escaping.
         // if (pzz <= 0 || p <= 0)
         // {
